@@ -1,0 +1,145 @@
+object Form1: TForm1
+  Left = 361
+  Height = 449
+  Top = 134
+  Width = 854
+  Caption = 'База данных запчастей Автомобиля'
+  ClientHeight = 429
+  ClientWidth = 854
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '2.0.2.0'
+  object DBGrid1: TDBGrid
+    Left = 16
+    Height = 160
+    Top = 80
+    Width = 544
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 0
+    TitleStyle = tsStandard
+  end
+  object Image1: TImage
+    Left = 576
+    Height = 160
+    Top = 80
+    Width = 256
+    OnClick = Image1Click
+    Proportional = True
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 854
+    Align = alTop
+    TabOrder = 1
+    OnClick = Panel1Click
+  end
+  object Button3: TButton
+    Left = 616
+    Height = 20
+    Top = 248
+    Width = 160
+    Caption = 'Показать'
+    OnClick = Button1Click
+    TabOrder = 2
+  end
+  object SQLite3Connection1: TSQLite3Connection
+    Connected = True
+    LoginPrompt = True
+    DatabaseName = 'C:\ProgrammLazarus\databasa\base\1bd.db'
+    KeepConnection = True
+    Transaction = SQLTransaction1
+    LogEvents = []
+    left = 344
+    top = 352
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLite3Connection1
+    left = 432
+    top = 344
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    left = 608
+    top = 344
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = '_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'Фирма'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Марка'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Агрегат'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Узел'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Деталь'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'Фото'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 255
+      end>
+    Active = True
+    Filtered = True
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from  guests;'
+    )
+    Params = <>
+    left = 528
+    top = 344
+  end
+  object MainMenu1: TMainMenu
+    left = 696
+    top = 360
+    object MenuItem1: TMenuItem
+      Caption = 'Запись'
+      object MenuItem2: TMenuItem
+        Caption = 'Добавить'
+        OnClick = MenuItem2Click
+      end
+      object MenuItem4: TMenuItem
+        Caption = 'Изменить'
+        OnClick = MenuItem4Click
+      end
+      object MenuItem3: TMenuItem
+        Caption = 'Удалить'
+        OnClick = MenuItem3Click
+      end
+    end
+  end
+end
